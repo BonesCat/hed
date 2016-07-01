@@ -160,7 +160,7 @@ layer { type: "Crop" name: 'crop' bottom: 'score-dsn5-up' bottom: 'data' top: 'u
 layer { type: "SigmoidCrossEntropyLoss" bottom: "upscore-dsn5" bottom: "label" top:"dsn5_loss"  loss_weight: 1}
 
 ### Concat and multiscale weight layer ###
-layer { name: "concat" bottom: "upscore-dsn1"  bottom: "upscore-dsn2" bottom: "upscore-dsn3" 
+layer { name: "concat" bottom: "upscore-dsn1"  bottom: "upscore-dsn2" bottom: "upscore-dsn3"
          bottom: "upscore-dsn4" bottom: "upscore-dsn5" top: "concat-upscore" type: "Concat"
   concat_param { concat_dim: 1} }
 layer { name: 'new-score-weighting' type: "Convolution" bottom: 'concat-upscore' top: 'upscore-fuse'
